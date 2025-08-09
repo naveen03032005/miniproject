@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Meet - Join or Start</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="landing galaxy-bg">
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-logo">🚀 AI Meet</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="landing-container glass-box">
+    <div class="logo-large">AI Meet</div>
+    <p class="tagline">Smart, Real-Time AI-Powered Meeting Notes</p>
+
+    <div class="meeting-actions">
+      <input type="text" id="meeting-id" placeholder="Enter meeting ID"/>
+      <button id="join-btn">Join Meeting</button>
+    </div>
+
+    <div class="divider"><span>OR</span></div>
+
+    <button id="new-meeting-btn" class="primary-btn">Start a New Meeting</button>
+  </div>
+
+  <script>
+    document.getElementById('join-btn').addEventListener('click', () => {
+      const id = document.getElementById('meeting-id').value.trim()
+      if (id) window.location.href = `meeting.html?id=${encodeURIComponent(id)}`
+      else alert("Please enter a valid Meeting ID.")
+    })
+    document.getElementById('new-meeting-btn').addEventListener('click', () => {
+      const newId = Math.floor(Math.random()*900000)+100000 // 6-digit ID
+      window.location.href = `meeting.html?id=${newId}`
+    })
+  </script>
+</body>
+</html>
